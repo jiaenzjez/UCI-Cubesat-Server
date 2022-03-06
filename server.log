@@ -1,0 +1,23 @@
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [01/Mar/2022 19:29:55] "[33mGET / HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Mar/2022 19:29:57] "GET /tle HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Mar/2022 19:30:25] "GET /available_satellite HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Mar/2022 19:42:06] "GET /available_satellite HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Mar/2022 19:42:06] "GET /available_satellite HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Mar/2022 19:42:08] "[35m[1mPOST /prediction HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Mar/2022 19:42:10] "POST /prediction HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [04/Mar/2022 20:14:13] "GET /available_satellite HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Mar/2022 20:14:14] "GET /available_satellite HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Mar/2022 20:14:16] "[35m[1mPOST /prediction HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Mar/2022 20:14:17] "POST /prediction HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [06/Mar/2022 17:26:03] "GET /tle HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Mar/2022 17:26:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
