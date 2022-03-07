@@ -38,7 +38,7 @@ dbConnection = psycopg2.connect(database=url.path[1:],
                                 password=url.password,
                                 host=url.hostname,
                                 port=url.port,
-                                options='-c statement_timeout=30000')
+                                options='-c statement_timeout=60000')
 
 # API URL config
 apiVersion = "v1"
