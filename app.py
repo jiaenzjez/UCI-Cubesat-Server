@@ -3,25 +3,22 @@ import requests
 from flask import request
 from skyfield.toposlib import wgs84
 
-from src.python import calculation, geocoding, satnogs, tle
+from src.python import calculation, geocoding, satnogs, tle, appConfig
 from src.python.appConfig import app
 
 
-@app.route('/response', methods=['GET'])
+@app.route(f'{appConfig.apiBaseUrl}/heartbeat', methods=['GET'])
 def getResponse():
-    # For debug
     return flask.jsonify(requests.get(satnogs.TLE_URL).json())
 
 
-@app.route('/tle', methods=['GET'])
+@app.route(f'{appConfig.apiBaseUrl}/tle', methods=['GET'])
 def getPayload():
-    # For debug
     return flask.jsonify(tle.loadTLE())
 
 
-@app.route('/location', methods=['POST'])
+@app.route(f'{appConfig.apiBaseUrl}/geocoding', methods=['POST'])
 def getLatLong():
-    # input from forms
     addressLine = request.get_json().get('address')
     city = request.get_json().get('city')
     postalCode = request.get_json().get('postalCode')
@@ -31,20 +28,18 @@ def getLatLong():
     return flask.jsonify(geocoding.getLatLong(addressLine, city, adminDistrict, postalCode, country)[0])
 
 
-@app.route('/flight_path', methods=['GET'])
-def getCalculation():
-    # For debug
+@app.route(f'{appConfig.apiBaseUrl}/flight_path', methods=['POST'])
+def getFlightPath():
     data = tle.loadTLE()['0 AMICALSAT']
     return flask.jsonify(calculation.getSerializedPath(calculation.getPath(data, "latlong")))
 
 
-@app.route('/available_satellite', methods=['GET'])
+@app.route(f'{appConfig.apiBaseUrl}/available_satellite', methods=['GET'])
 def getSatellite():
-    # for dropdown box
     return flask.jsonify(list(tle.loadTLE().keys()))
 
 
-@app.route('/prediction', methods=['POST'])
+@app.route(f'{appConfig.apiBaseUrl}/prediction', methods=['POST'])
 def getHorizon():
     selectedSatellite = request.get_json().get('satellite')
     rxLatLng = request.get_json().get('rxLatLng')
