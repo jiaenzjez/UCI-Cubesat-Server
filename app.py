@@ -35,8 +35,25 @@ def getFlightPath():
 
 
 @app.route(f'{appConfig.apiBaseUrl}/available_satellite', methods=['GET'])
-def getSatellite():
+def getAvailableSatellite():
     return flask.jsonify(list(tle.loadTLE().keys()))
+
+
+@app.route(f'{appConfig.apiBaseUrl}/satellite/amicalsat', methods=['GET'])
+def getSatellite():
+    data = tle.loadTLE()
+    if 'AMICALSAT' in data.keys():
+        d = data['AMICALSAT']
+    else:
+        d = data['0 AMICALSAT']
+    response = calculation.getSphericalPath(d, 60.0, 5.0/60.0)
+    currLatLng: tuple = response["origin"]
+    currLatPath: list = response["latArray"]
+    currLngPath: list = response["longArray"]
+    return flask.jsonify({"latLng": {"lat": currLatLng[0], "lng": currLatLng[1]},
+                          "latPath": list(currLatPath),
+                          "lngPath": list(currLngPath)
+                          })
 
 
 @app.route(f'{appConfig.apiBaseUrl}/prediction', methods=['POST'])
