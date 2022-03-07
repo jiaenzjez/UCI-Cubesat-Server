@@ -6,6 +6,7 @@ from src.python import appConfig, dbModel, dbQueries
 
 # TODO:
 #  Switch all DB operation from using SQLAlchemy to psycopg2
+#  Need to handle unexpected closed connection, restart connection
 
 
 def dbWrite(entryArray: list):
