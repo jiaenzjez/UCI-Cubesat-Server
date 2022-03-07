@@ -28,25 +28,22 @@ def getLatLong():
     return flask.jsonify(geocoding.getLatLong(addressLine, city, adminDistrict, postalCode, country)[0])
 
 
-@app.route(f'{appConfig.apiBaseUrl}/flight_path', methods=['POST'])
-def getFlightPath():
-    data = tle.loadTLE()['0 AMICALSAT']
-    return flask.jsonify(calculation.getSerializedPath(calculation.getPath(data, "latlong")))
-
-
 @app.route(f'{appConfig.apiBaseUrl}/available_satellite', methods=['GET'])
 def getAvailableSatellite():
     return flask.jsonify(list(tle.loadTLE().keys()))
 
 
-@app.route(f'{appConfig.apiBaseUrl}/satellite/amicalsat', methods=['GET'])
-def getSatellite():
+@app.route(f'{appConfig.apiBaseUrl}/satellite_state', methods=['GET'])
+def getSatelliteState():
+    name = request.args.get("name", default="AmicalSat", type=str).upper()
     data = tle.loadTLE()
-    if 'AMICALSAT' in data.keys():
-        d = data['AMICALSAT']
-    else:
-        d = data['0 AMICALSAT']
-    response = calculation.getSphericalPath(d, 60.0, 5.0/60.0)
+
+    try:
+        satellite_tle = data[name] if name in data.keys() else data[f'0 {name}']
+    except KeyError:
+        return flask.jsonify(None)
+
+    response = calculation.getSphericalPath(satellite_tle, 60.0, 5.0 / 60.0)
     currLatLng: tuple = response["origin"]
     currLatPath: list = response["latArray"]
     currLngPath: list = response["longArray"]

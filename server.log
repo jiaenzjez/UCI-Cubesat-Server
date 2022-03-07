@@ -83,3 +83,36 @@ INFO:werkzeug:127.0.0.1 - - [06/Mar/2022 23:16:02] "GET /api/v1/satellite/amical
 INFO:werkzeug: * Detected change in '/Users/jiaenjez/UCI-Cubesat-Server/app.py', reloading
 INFO:werkzeug: * Restarting with stat
 INFO:werkzeug:127.0.0.1 - - [06/Mar/2022 23:17:00] "GET /api/v1/satellite/amicalsat HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:32:16] "[33mGET / HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:32:27] "[33mGET /api/v1/satellite?name=amicalsat HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:32:37] "[33mGET /api/v1/satellite HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:32:47] "GET /api/v1/satellite_state?name=amicalsat HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/jiaenjez/UCI-Cubesat-Server/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:33:37] "[35m[1mGET /api/v1/available_satellite HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:33:37] "GET /api/v1/available_satellite?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:33:37] "GET /api/v1/available_satellite?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:33:37] "GET /api/v1/available_satellite?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:33:37] "GET /api/v1/available_satellite?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:33:37] "GET /api/v1/available_satellite?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/jiaenjez/UCI-Cubesat-Server/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Detected change in '/Users/jiaenjez/UCI-Cubesat-Server/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Detected change in '/Users/jiaenjez/UCI-Cubesat-Server/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:35:31] "GET /api/v1/satellite_state?name=amicalsat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:35:36] "[35m[1mGET /api/v1/satellite_state?name=beesat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:35:36] "GET /api/v1/satellite_state?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:35:36] "GET /api/v1/satellite_state?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:35:36] "GET /api/v1/satellite_state?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:35:36] "GET /api/v1/satellite_state?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:35:36] "GET /api/v1/satellite_state?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/jiaenjez/UCI-Cubesat-Server/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:36:18] "GET /api/v1/satellite_state?name=beesat HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/jiaenjez/UCI-Cubesat-Server/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [07/Mar/2022 00:36:27] "GET /api/v1/satellite_state?name=beesat HTTP/1.1" 200 -
