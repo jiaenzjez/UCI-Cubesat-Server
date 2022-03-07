@@ -12,7 +12,7 @@ client = base.Client(('localhost', 11211))
 
 
 def getTLE() -> {dict}:
-    tleList = satnogs.tleFilter(satnogs.sortMostRecent(satnogs.satelliteFilter(satnogs.getSatellites())))
+    tleList = satnogs.tleFilter(satnogs.sortMostRecent(satnogs.getSatellites()))
     keys = [tle['tle0'] for tle in tleList]
     return dict(zip(keys, tleList))
 

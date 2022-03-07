@@ -54,7 +54,7 @@ def sortMostRecent(satelliteList: [dict], recent: bool = True) -> [dict]:
 
     # sort the list of satellite by timestamp (last known communication)
     return [sat for sat in sorted(satelliteList, key=lambda x: x["time"], reverse=recent)
-            if int(sat["time"][0:4]) >= 2018]
+            if int(sat["time"][0:4]) >= 2021]
 
 
 def getNoradID(satelliteList: [dict]) -> {str}:
