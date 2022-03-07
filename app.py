@@ -43,7 +43,7 @@ def getSatelliteState():
     except KeyError:
         return flask.jsonify(None)
 
-    response = calculation.getSphericalPath(satellite_tle, 60.0, 5.0 / 60.0)
+    response = calculation.getSphericalPath(satellite_tle, 1.0, 60.0 / 60.0)
     currLatLng: tuple = response["origin"]
     currLatPath: list = response["latArray"]
     currLngPath: list = response["longArray"]
