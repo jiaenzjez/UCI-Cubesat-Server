@@ -146,8 +146,12 @@ def loadTLE() -> {dict}:
 
 
 if __name__ == "__main__":
+    # clear cache && db
     clearMemcache()
+    dbUtils.dbTruncateTable("tle")
+    # change setting
     appConfig.enableDB = True
     appConfig.enableMemcache = False
+    # test
     for i in range(5):
-        loadTLE()
+        print(loadTLE())

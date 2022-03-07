@@ -1,19 +1,19 @@
 import psycopg2
 import psycopg2.extras
-from sqlalchemy import exc
 
 from src.python import appConfig, dbModel, dbQueries
 
 
-def dbCommit():
-    dbModel.db.session.commit()
+# TODO:
+#  Switch all DB operation from using SQLAlchemy to psycopg2
 
 
 def dbWrite(entryArray: list):
-    dbModel.db.drop_all()
-    dbModel.db.create_all()
+    dbCursor = appConfig.dbConnection.cursor()
+    dbCursor.execute(dbQueries.queries["truncate_table_by_name"]("tle"))
+    appConfig.dbConnection.commit()
 
-    for entry in entryArray:
+    for entry in entryArray:  # This is still using SQLAlchemy
         dbModel.db.session.add(entry)
     dbModel.db.session.commit()
 
@@ -45,24 +45,14 @@ def dbRead(queryName, *args, **kwargs):
 def dbDropTable(tableName):
     dbCursor = appConfig.dbConnection.cursor()
     dbCursor.execute(dbQueries.queries["drop_table_by_name"](tableName))
-    dbModel.db.session.commit()
+    appConfig.dbConnection.commit()
 
 
 def dbTruncateTable(tableName):
     dbCursor = appConfig.dbConnection.cursor()
     dbCursor.execute(dbQueries.queries["truncate_table_by_name"](tableName))
-    dbModel.db.session.commit()
+    appConfig.dbConnection.commit()
 
 
 def dbClose():
     dbModel.db.close_all_sessions()
-
-
-def dbDropAll():
-    dbModel.db.drop_all()
-    dbModel.db.session.commit()
-
-
-def dbCreateAll():
-    dbModel.db.create_all()
-    dbModel.db.session.commit()
